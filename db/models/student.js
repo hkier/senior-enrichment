@@ -1,9 +1,10 @@
 'use strict';
 
-var db = require('./database');
+var db = require('../index');
 var Sequelize = require('sequelize');
 
-var Students = db.define('student', {
+
+var Student = db.define('student', {
     name: {
         type: Sequelize.STRING,
         allownull: false
@@ -14,10 +15,10 @@ var Students = db.define('student', {
         validate: { isEmail: true },
         allownull: false
     }
-},
+}
 );
 
 module.exports = {
-    Page: Students,
+    Student: Student,
     db: db
 }

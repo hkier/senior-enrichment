@@ -1,6 +1,6 @@
 'use strict';
 
-var db = require('./database');
+var db = require('../index');
 var Sequelize = require('sequelize');
 
 var Campus = db.define('campus', {
@@ -15,3 +15,4 @@ var Campus = db.define('campus', {
 
     }
 })
+module.exports = Campus
