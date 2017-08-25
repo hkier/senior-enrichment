@@ -3,7 +3,6 @@
 var db = require('../index');
 var Sequelize = require('sequelize');
 
-
 var Student = db.define('student', {
     name: {
         type: Sequelize.STRING,
@@ -13,12 +12,8 @@ var Student = db.define('student', {
     email: {
         type: Sequelize.TEXT,
         validate: { isEmail: true },
-        allownull: false
+        allownull: false,
     }
-}
-);
+})
 
-module.exports = {
-    Student: Student,
-    db: db
-}
+module.exports = Student

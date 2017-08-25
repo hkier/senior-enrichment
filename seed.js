@@ -10,59 +10,29 @@ const campus = [
 ];
 
 const student = [
-    {
-        name: 'Spock',
-        email: 'spock@enterprise.com'
-    },
-    {
-        name: 'Kirk',
-        email: 'Captain@enterprise.com'
-    },
-    {
-        name: 'Koloth',
-        email: 'koloth@Klingon.com'
-    },
-    {
-        name: 'Dr. Who',
-        email: 'who@tardis.com'
-    },
-    {
-        name: 'Nelix',
-        email: 'nelix@voyager.com'
-    },
-    {
-        name: 'Clary Fairchild',
-        email: 'CFairchild@Shadow.com'
-    },
-    {
-        name: 'Izzy Black',
-        email: 'Iz@Shadow.com'
-    },
-    {
-        name: 'Luke Graywolf',
-        email: 'Luke@Jade.com'
-    },
-    {
-        name: 'Amanda Tapping',
-        email: 'Carter@stargate.gov.us'
-    },
-    {
-        name: 'Tealc',
-        email: 'tealc@stargate.gov.us'
-    },
+    { name: 'Spock', email: 'spock@enterprise.com' },
+    { name: 'Kirk', email: 'Captain@enterprise.com' },
+    { name: 'Koloth', email: 'koloth@Klingon.com' },
+    { name: 'Dr. Who', email: 'who@tardis.com' },
+    { name: 'Nelix', email: 'nelix@voyager.com' },
+    { name: 'Clary Fairchild', email: 'CFairchild@Shadow.com' },
+    { name: 'Izzy Black', email: 'Iz@Shadow.com' },
+    { name: 'Luke Graywolf', email: 'Luke@Jade.com' },
+    { name: 'Amanda Tapping', email: 'Carter@stargate.gov.us' },
+    { name: 'Tealc', email: 'tealc@stargate.gov.us' }
 ];
 
 const seed = () =>
     Promise.all(campus.map(campus => {
-        console.log('Campus is', Campus)  
-        Campus.create(campus)}
-        )
+        Campus.create(campus)
+    }
+    )
     )
         .then(() =>
-            Promise.all(student.map(student =>{
-                console.log("Student is", Student)
-                Student.create(student)}
-                )
+            Promise.all(student.map(student => {
+                Student.create(student)
+            }
+            )
             )
         );
 
