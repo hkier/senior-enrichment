@@ -58,7 +58,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
   * can edit a student's info, including the campus that student is assigned to
   * can delete a student
 
-### Routes
+<!-- ### Routes
 
 ```
 GET
@@ -84,7 +84,7 @@ PUT
 DELETE
 - a campus
 - a student
-```
+``` -->
 
 ### How to test functionality without a frontend
 - GET: use your browser
