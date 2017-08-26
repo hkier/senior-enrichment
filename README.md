@@ -2,27 +2,27 @@
 
 Make a thing!
 
-## Getting started
+<!-- ## Getting started -->
 
-1. Fork and clone this repo
+<!-- 1. Fork and clone this repo
 2. *Set the name of your project in `package.json`*. The skeleton intentionally ships with an invalid name.
 3. `npm install`
 4. Check out the mock-view in the `wireframes` folder
 5. Start the build process with: `npm run build-watch`
 6. In another terminal, start your app with `npm start`
-7. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started]
+7. If you navigate to the URL you should see some UI already :) [We already have some connection code to get you started] -->
 
-## Requirements
+<!-- ## Requirements
 
 ### The Premise
 
-You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your students and campuses.
+You are the CTO of the Margaret Hamilton Interplanetary Academy of JavaScript. Create a RESTful web platform that allows you to manage your students and campuses. -->
 
 ### The tools
 
 Use at least sequelize, express, react, and redux when creating this app. You can incorporate any additional libraries or tools you wish.
 
-### DB Design
+<!-- ### DB Design
 
 - Students
   * have profile info (e.g. name and email)
@@ -30,7 +30,7 @@ Use at least sequelize, express, react, and redux when creating this app. You ca
 
 - Campuses
   * have info such as a name and image
-  * can have many students assigned (may have none)
+  * can have many students assigned (may have none) -->
 
 ### Views and Functionality
 #### See Wireframes folder for visual
