@@ -78,6 +78,6 @@ check to see if there are any students BEFORE we delete the campus OR
 delete all the students.
 */ 
     req.campus.destroy()
-    .then(()=> res.status(204.end()))
+    .then(()=> res.status(204).end())
     .catch(next);
 }) //end delete

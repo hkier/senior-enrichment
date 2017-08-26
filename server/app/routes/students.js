@@ -86,6 +86,6 @@ router.put('/student/:id', function(req,res){
 //delete a student
 router.delete('/student/:id', function(req,res,next){
     req.student.destroy()
-    .then(()=> res.status(204.end()))
+    .then(()=> res.status(204).end())
     .catch(next);
 }) //end delete
