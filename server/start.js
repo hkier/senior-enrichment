@@ -13,10 +13,10 @@ var startServer = function() {
     });
 
 }
-
+startServer()
 // startDb
-db.didSync
-.then(createApplication)
-.catch(function(err){
-    console.error(chalk.red(err.stack));
-});
+// db.didSync
+// .then(createApplication)
+// .catch(function(err){
+//     console.error(chalk.red(err.stack));
+// });
