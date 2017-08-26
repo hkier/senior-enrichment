@@ -48,7 +48,7 @@ const main = () => {
             console.log(err.stack);
         })
         .then(() => {
-            db.close();
+            // db.close();
             return null;
         });
 };
