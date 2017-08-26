@@ -9,6 +9,16 @@ Require all the models
 	in that if you change the name of the model you will have to change every time it is requeired 
 	everywhere
 */
-const User = require('./user')
+const User = require('./user');
+const Campus = require('./campus');
+const Student = require('./student');
+
+Student.belongsTo(Campus);
+Campus.hasMany(Student);
 
 module.exports = {User}
+module.exports = {
+	User: User,
+	Campus: Campus,
+	Student: Student
+  };

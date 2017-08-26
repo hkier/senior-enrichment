@@ -10,16 +10,16 @@ const campus = [
 ];
 
 const student = [
-    { name: 'Spock', email: 'spock@enterprise.com' },
-    { name: 'Kirk', email: 'Captain@enterprise.com' },
-    { name: 'Koloth', email: 'koloth@Klingon.com' },
-    { name: 'Dr. Who', email: 'who@tardis.com' },
-    { name: 'Nelix', email: 'nelix@voyager.com' },
-    { name: 'Clary Fairchild', email: 'CFairchild@Shadow.com' },
-    { name: 'Izzy Black', email: 'Iz@Shadow.com' },
-    { name: 'Luke Graywolf', email: 'Luke@Jade.com' },
-    { name: 'Amanda Tapping', email: 'Carter@stargate.gov.us' },
-    { name: 'Tealc', email: 'tealc@stargate.gov.us' }
+    { name: 'Spock', email: 'spock@enterprise.com', campusId: 1 },
+    { name: 'Kirk', email: 'Captain@enterprise.com', campusId: 2 },
+    { name: 'Koloth', email: 'koloth@Klingon.com', campusId: 3 },
+    { name: 'Dr. Who', email: 'who@tardis.com', campusId: 4 },
+    { name: 'Nelix', email: 'nelix@voyager.com', campusId: 1 },
+    { name: 'Clary Fairchild', email: 'CFairchild@Shadow.com', campusId: 2 },
+    { name: 'Izzy Black', email: 'Iz@Shadow.com', campusId: 3 },
+    { name: 'Luke Graywolf', email: 'Luke@Jade.com', campusId: 4 },
+    { name: 'Amanda Tapping', email: 'Carter@stargate.gov', campusId: 1 },
+    { name: 'Tealc', email: 'tealc@stargate.gov', campusId: 1 }
 ];
 
 const seed = () =>
