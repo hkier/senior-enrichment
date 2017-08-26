@@ -68,3 +68,16 @@ else {
     }) //end find one
 } // end update else
 }) //end update campus
+
+//delete a campus
+router.delete('/campus/:id', function(req,res,next){
+/*
+Can a campus be deleted when there are still students?  
+I don't think that should be the case.  So we will have to 
+check to see if there are any students BEFORE we delete the campus OR
+delete all the students.
+*/ 
+    req.campus.destroy()
+    .then(()=> res.status(204.end()))
+    .catch(next);
+}) //end delete

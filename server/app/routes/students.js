@@ -82,3 +82,10 @@ router.put('/student/:id', function(req,res){
         }) //end find one
     } // end update else
     }) //end update student
+
+//delete a student
+router.delete('/student/:id', function(req,res,next){
+    req.student.destroy()
+    .then(()=> res.status(204.end()))
+    .catch(next);
+}) //end delete
