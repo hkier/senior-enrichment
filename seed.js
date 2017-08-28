@@ -25,9 +25,7 @@ const student = [
 const seed = () =>
     Promise.all(campus.map(campus => {
         Campus.create(campus)
-    }
-    )
-    )
+    }))
         .then(() =>
             Promise.all(student.map(student => {
                 Student.create(student)

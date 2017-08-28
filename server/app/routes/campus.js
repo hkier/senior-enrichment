@@ -6,14 +6,14 @@ const campus = require('../../db/models');
 const Campus = models.Campus;
 module.exports = router;
 
-router.get('/campus', function (req, res, next) {
+router.get('/', function (req, res, next) {
     console.log('/campus did I get here?')
     Campus.findAll({ where: req.query })
         .then(campus => res.json(campus))
         .catch(next);
 });
 
-router.get('/campus/:campusid', function (req, res) {
+router.get('/:campusid', function (req, res) {
     console.log('at campus id search');
     let id = req.params.campusid;
     Campus.findOne({ where: { id: id } })
@@ -24,7 +24,7 @@ router.get('/campus/:campusid', function (req, res) {
             }
         })
 })
-route.post('/campus', function (req, res) {
+route.post('/', function (req, res) {
     console.log ('At new campus post')
     if (false) {   //TODO determine failure conditions.
         res.status(500)
@@ -47,7 +47,7 @@ route.post('/campus', function (req, res) {
 
 // Update a campus
 
-router.put('/campus/:id', function(req,res){
+router.put('/:id', function(req,res){
 if (false){
 res.status(500);
 res.json ('error updating campus')
@@ -70,7 +70,7 @@ else {
 }) //end update campus
 
 //delete a campus
-router.delete('/campus/:id', function(req,res,next){
+router.delete('/:id', function(req,res,next){
 /*
 Can a campus be deleted when there are still students?  
 I don't think that should be the case.  So we will have to 

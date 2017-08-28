@@ -6,14 +6,14 @@ const student = require('../../db/models');
 const Student = models.Student;
 module.exports = router;
 
-router.get('/student', function (req, res, next) {
+router.get('/', function (req, res, next) {
     console.log('/student did I get here?')
     Student.findAll({ where: req.query })
         .then(student => res.json(student))
         .catch(next);
 });
 
-router.get('/student/:studentid', function (req, res) {
+router.get('/:studentid', function (req, res) {
     console.log('at student id search');
     let id = req.params.studentid;
     Student.findOne({ where: { id: id } })
@@ -24,7 +24,7 @@ router.get('/student/:studentid', function (req, res) {
             }
         })
 })
-router.get('/student/campus/:campusid', function (req, res) {
+router.get('/campus/:campusid', function (req, res) {
     console.log('at student on campus id search');
     let campusid = req.params.campusid;
     Student.findAll({ where: { campusid: campusid } })
@@ -36,7 +36,7 @@ router.get('/student/campus/:campusid', function (req, res) {
         })
 })
 
-route.post('/student', function (req, res) {
+route.post('/', function (req, res) {
     console.log ('at new student post')
     if (false) {   //TODO determine failure conditions.
         res.status(500)
@@ -61,7 +61,7 @@ route.post('/student', function (req, res) {
 
 // Update a student
 
-router.put('/student/:id', function(req,res){
+router.put('/:id', function(req,res){
     if (false){
     res.status(500);
     res.json ('error updating student')
@@ -84,7 +84,7 @@ router.put('/student/:id', function(req,res){
     }) //end update student
 
 //delete a student
-router.delete('/student/:id', function(req,res,next){
+router.delete('/:id', function(req,res,next){
     req.student.destroy()
     .then(()=> res.status(204).end())
     .catch(next);
