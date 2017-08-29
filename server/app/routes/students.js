@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = new express.Router();
-const student = require('../../db/models');
+const models = require('../../../db/models');
 const Student = models.Student;
 module.exports = router;
 
@@ -22,12 +22,16 @@ router.get('/:studentid', function (req, res) {
                 res.status(200)
                 res.json(student)
             }
+            else {
+                res.status(404);
+                res.json("Student not found for this id")
+            }
         })
 })
 router.get('/campus/:campusid', function (req, res) {
     console.log('at student on campus id search');
-    let campusid = req.params.campusid;
-    Student.findAll({ where: { campusid: campusid } })
+    let campusId = req.params.campusid;
+    Student.findAll({ where: { campusId: campusId } })
         .then(students => {
             if (students !== null) {
                 res.status(200)
@@ -36,7 +40,7 @@ router.get('/campus/:campusid', function (req, res) {
         })
 })
 
-route.post('/', function (req, res) {
+router.post('/', function (req, res) {
     console.log ('at new student post')
     if (false) {   //TODO determine failure conditions.
         res.status(500)

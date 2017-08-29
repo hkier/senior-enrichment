@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = new express.Router();
-const campus = require('../../db/models');
+const models = require('../../../db/models');
 const Campus = models.Campus;
 module.exports = router;
 
@@ -21,10 +21,13 @@ router.get('/:campusid', function (req, res) {
             if (campus !== null) {
                 res.status(200)
                 res.json(campus)
+            } else {
+                res.status(404)
+                res.json("not found")
             }
         })
 })
-route.post('/', function (req, res) {
+router.post('/', function (req, res) {
     console.log ('At new campus post')
     if (false) {   //TODO determine failure conditions.
         res.status(500)
