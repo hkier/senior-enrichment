@@ -1,0 +1,13 @@
+body{background-color: rgba(152, 237, 234, 0.87)}
+
+.glyphicon {
+    padding-right: 1 rem;
+    display: inline-block; } 
+
+
+.tile {
+    padding: 5px;
+    border-color: black;
+    border-style: solid;
+    margin: 5px;
+}
