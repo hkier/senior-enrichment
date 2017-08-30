@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href=".x/style.css" rel="stylesheet" />
+    <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -17,8 +17,8 @@
                 </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Campuses <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="#">Students</a>
+                <a class="nav-item nav-link" href="#">Campuses <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#"><span class="glyphicon glyphicon-education"></span>Students</a>
                 <a class="nav-item nav-link" href="#">Classes</a>
                 <a class="nav-item nav-link disabled" href="#">Schedules</a>
             </div>
@@ -26,7 +26,48 @@
     </nav>
     <sidebar> </sidebar>
     <footer></footer>
-    <campus></campus>
+    <main class="container-fluid">
+        <campus>
+            <div>
+                <h3>Campuses</h3>
+                <div class="row">
+                    <div class="col-xs-4" key=XXXXX>
+                        <link class="thumbnail" to=XXXXXXX>
+                        <img style="width:210px;height:140px" src='./pix/_DSC9198.JPG' />
+                        <div class="caption">
+                            <h5>
+                                <span>Campus 1</span>
+                            </h5>
+                            <small>Some words</small>
+                        </div>
+                        </link>
+                    </div>
+                    <div class="col-xs-4" key=XXXXX>
+                        <link class="thumbnail" to=XXXXXXX>
+                        <img style="width:210px;height:140px" src='./pix/_DSC7373.JPG' />
+                        <div class="caption">
+                            <h5>
+                                <span>Campus 2</span>
+                            </h5>
+                            <small>Some words</small>
+                        </div>
+                        </link>
+                    </div>
+                    <div class="col-xs-4" key=XXXXX>
+                        <link class="thumbnail" to=XXXXXXX>
+                        <img style="width:210px;height:140px" src='./pix/_DSC8085.JPG' />
+                        <div class="caption">
+                            <h5>
+                                <span>Campus 3</span>
+                            </h5>
+                            <small>Some words</small>
+                        </div>
+                        </link>
+                    </div>
+                </div>
+            </div>
+        </campus>
+    </main>
     <student></student>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
