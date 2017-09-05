@@ -13,9 +13,15 @@ export default class Main extends Component {
     return (
       <div>
         <Navbar />
+        <Switch>
         <main>
-          <AllCampuses/>
+          <Route exact path='/campus' component={AllCampuses}/>
+          <Route exact path='/students' component={AllStudents}/>
+          <Route exact path='/' component={AllCampuses}/>
+          <Route exact path='/campus/:campusid' component={SingleCampus}/>'
+          <Route exact path='/students/:studentid' component={SingleStudent}/>'
         </main>
+        </Switch>
       </div>
     );
   }
