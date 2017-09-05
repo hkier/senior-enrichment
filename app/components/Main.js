@@ -14,10 +14,7 @@ export default class Main extends Component {
       <div>
         <Navbar />
         <main>
-          <h1>Some Filler</h1>
           <AllCampuses/>
-          <AllStudents/>
-          <h1>The End</h1>
         </main>
       </div>
     );
