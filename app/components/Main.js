@@ -9,18 +9,16 @@ import SingleStudent from './SingleStudent';
 
 export default class Main extends Component {
 
-  render () {
+  render() {
     return (
       <div>
         <Navbar />
         <Switch>
-        <main>
-          <Route exact path='/campus' component={AllCampuses}/>
-          <Route exact path='/students' component={AllStudents}/>
-          <Route exact path='/' component={AllCampuses}/>
-          <Route exact path='/campus/:campusid' component={SingleCampus}/>'
-          <Route exact path='/students/:studentid' component={SingleStudent}/>'
-        </main>
+          <Route exact path='/campus' component={AllCampuses} />
+          <Route exact path='/students' component={AllStudents} />
+          <Route exact path='/' component={AllCampuses} />
+          <Route exact path='/campus/:campusid' component={SingleCampus} />'
+          <Route exact path='/students/:studentid' component={SingleStudent} />'
         </Switch>
       </div>
     );

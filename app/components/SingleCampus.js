@@ -10,17 +10,17 @@ export default class SingleCampus extends Component {
             oneCampus: []
         };
     }
-
+    
     componentDidMount() {
+        const campusId = this.props.match.params.campusid;
         axios.get(`/api/campus/${campusId}`)
             .then(res => res.data)
             .then(oneCampus => this.setState({ oneCampus }));
-        console.log("one campus", oneCampus)
     }
-
+    
     render() {
-
-        const campus = this.state.oneCampus
+    
+        const campus = this.state.oneCampus;
         return (
             <div>
                 <h3>
