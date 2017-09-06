@@ -7,20 +7,28 @@ export default class SingleCampus extends Component {
     constructor() {
         super();
         this.state = {
-            oneCampus: []
+            oneCampus: [],
+            students: []
         };
     }
-    
+
     componentDidMount() {
         const campusId = this.props.match.params.campusid;
         axios.get(`/api/campus/${campusId}`)
             .then(res => res.data)
-            .then(oneCampus => this.setState({ oneCampus }));
+            .then(oneCampus => this.setState({ oneCampus }))
+            .catch(err => err);
+            
+        axios.get(`/api/students/campus/${campusId}`)
+            .then(res => res.data)
+            .then(students => this.setState({ students }))
+            .catch(err => err);
     }
-    
+
     render() {
-    
+
         const campus = this.state.oneCampus;
+        const students = this.state.students;
         return (
             <div>
                 <h3>
@@ -36,7 +44,29 @@ export default class SingleCampus extends Component {
 
                     }
                 </div >
-            </div >
+                <div>
+                    <h3>Students
+<button type="button" className="btn btn-default btn-group-sm">New Student</button>
+                    </h3>
+                    <div className="row">
+                        {
+                            students.map(student => (
+                                <div className="col-xs-3 tile" key={student.id}>
+                                    <Link className="thumbnail" to={`/students/${student.id}`}>
+                                        <div className="caption">
+                                            <h5>
+                                                <span>{student.name}</span>
+                                            </h5>
+                                            Student Information
+  <button type="button" className="btn btn-default btn-group-sm">Delete Student</button>
+                                        </div>
+                                    </Link>
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div >
+            </div>
         );
     };
 

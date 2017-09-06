@@ -31,7 +31,7 @@ export default class AllStudents extends Component {
                     {
                         students.map(student => (
                             <div className="col-xs-3 tile" key={student.id}>
-                                <Link className="thumbnail" to={`/student/${student.id}`}>
+                                <Link className="thumbnail" to={`/students/${student.id}`}>
                                     <div className="caption">
                                         <h5>
                                             <span>{student.name}</span>
