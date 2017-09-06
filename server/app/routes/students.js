@@ -89,7 +89,8 @@ router.put('/:id', function(req,res){
 
 //delete a student
 router.delete('/:id', function(req,res,next){
-    req.student.destroy()
+    let id = req.params.id;
+    Student.destroy({where: {id: id} })
     .then(()=> res.status(204).end())
     .catch(next);
 }) //end delete

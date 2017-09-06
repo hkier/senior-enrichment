@@ -7,7 +7,8 @@ export default class AllCampuses extends Component {
     constructor() {
         super();
         this.state = {
-            campuses: []
+            campuses: [],
+            students: []
         };
     }
 
@@ -15,11 +16,17 @@ export default class AllCampuses extends Component {
         axios.get('/api/campus')
             .then(res => res.data)
             .then(campuses => this.setState({ campuses }));
+
+        axios.get('/api/students')
+            .then(res => res.data)
+            .then(students => this.setState({ students }))
+
     }
 
     render() {
 
         const campuses = this.state.campuses
+        const students = this.state.students
         return (
             <div>
                 <h3>Campuses
@@ -28,8 +35,6 @@ export default class AllCampuses extends Component {
                 <div className="row">
                     {
                         campuses.map(campus => (
-
-
                             <div className="col-xs-3 tile" key={campus.id}>
                                 <Link className="thumbnail" to={`/campus/${campus.id}`}>
                                     <img className="campus-image" src={`${campus.imageurl}`} />
