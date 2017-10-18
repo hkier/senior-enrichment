@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ShowPix from './ShowPix'
 
 export default class AllCampuses extends Component {
 
@@ -37,7 +38,7 @@ export default class AllCampuses extends Component {
                         campuses.map(campus => (
                             <div className="col-xs-3 tile" key={campus.id}>
                                 <Link className="thumbnail" to={`/campus/${campus.id}`}>
-                                    <img className="campus-image" src={`${campus.imageurl}`} />
+                                    <ShowPix url={campus.imageurl} />
                                     <div className="caption">
                                         <h5>
                                             <span>{campus.name}</span>

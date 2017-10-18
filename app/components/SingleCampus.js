@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ShowPix from './ShowPix'
 
 export default class SingleCampus extends Component {
 
@@ -18,7 +19,7 @@ export default class SingleCampus extends Component {
             .then(res => res.data)
             .then(oneCampus => this.setState({ oneCampus }))
             .catch(err => err);
-            
+
         axios.get(`/api/students/campus/${campusId}`)
             .then(res => res.data)
             .then(students => this.setState({ students }))
@@ -29,6 +30,7 @@ export default class SingleCampus extends Component {
 
         const campus = this.state.oneCampus;
         const students = this.state.students;
+        console.log('campus Url', campus.imageurl)
         return (
             <div>
                 <h3>
@@ -38,7 +40,7 @@ export default class SingleCampus extends Component {
                     {
                         <div className="col-xs-3 tile" key={campus.id}>
                             <div className="thumbnail" to={`/campus/${campus.id}`}>
-                                <img className="campus-image" src={`${campus.imageurl}`} />
+                                <ShowPix url={'/' + campus.imageurl} />
                             </div>
                         </div>
 

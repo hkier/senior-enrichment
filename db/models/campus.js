@@ -10,7 +10,7 @@ var Campus = db.define('campus', {
     },
     imageurl: {
         type: Sequelize.STRING,
-        validate: { isUrl: true },
+        // validate: { isUrl: false },
         allownull: true,
 
     }

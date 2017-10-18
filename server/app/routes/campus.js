@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
         .catch(next);
 });
 
-router.get('/:campusid', function (req, res) {
+router.get('/:campusid', function (req, res, next) {
     console.log('at campus id search');
     let id = req.params.campusid;
     Campus.findOne({ where: { id: id } })
@@ -21,13 +21,15 @@ router.get('/:campusid', function (req, res) {
             if (campus !== null) {
                 res.status(200)
                 res.json(campus)
-            } else {
+            } 
+            else {
                 res.status(404)
                 res.json("not found")
             }
         })
+        .catch(next)
 })
-router.post('/', function (req, res) {
+router.post('/', function (req, res, next) {
     console.log ('At new campus post')
     if (false) {   //TODO determine failure conditions.
         res.status(500)
@@ -50,12 +52,8 @@ router.post('/', function (req, res) {
 
 // Update a campus
 
-router.put('/:id', function(req,res){
-if (false){
-res.status(500);
-res.json ('error updating campus')
-}// end validation block
-else {
+router.put('/:id', function(req,res, next){
+
     let id = req.params.id;
     Campus.findOne({where: {id: id} }).then(data =>{
         data.datavalues.name = req.body.name
@@ -68,8 +66,8 @@ else {
                 res.json({message, campus})
             })
         })
+        .catch(next)
     }) //end find one
-} // end update else
 }) //end update campus
 
 //delete a campus

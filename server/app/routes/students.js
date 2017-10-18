@@ -13,40 +13,34 @@ router.get('/', function (req, res, next) {
         .catch(next);
 });
 
-router.get('/:studentid', function (req, res) {
+router.get('/:studentid', function (req, res, next) {
     console.log('at student id search');
     let id = req.params.studentid;
     Student.findOne({ where: { id: id } })
         .then(student => {
             if (student !== null) {
-                res.status(200)
-                res.json(student)
+                res.status(200).json(student)
             }
             else {
-                res.status(404);
-                res.json("Student not found for this id")
+                res.status(404).json("Student not found for this id")
             }
         })
+        .catch(next)
 })
-router.get('/campus/:campusid', function (req, res) {
+router.get('/campus/:campusid', function (req, res, next) {
     console.log('at student on campus id search');
     let campusId = req.params.campusid;
     Student.findAll({ where: { campusId: campusId } })
         .then(students => {
             if (students !== null) {
-                res.status(200)
-                res.json(students)
+                res.status(200).json(students)
             }
         })
+        .catch(next)
 })
 
-router.post('/', function (req, res) {
+router.post('/', function (req, res, next) {
     console.log ('at new student post')
-    if (false) {   //TODO determine failure conditions.
-        res.status(500)
-        res.json('ERROR')
-    } // end validation if
-    else {
         Student.create(req.body)
             .then(data => {
                 Student.findOne({ where: { email: req.body.email } }).then(data2 => {
@@ -56,21 +50,15 @@ router.post('/', function (req, res) {
                     student.email = data2.email;
                     student.campusid = data2.campusid;
                     let message = "created"
-                    res.status(200)
-                    res.json({ message, student })
+                    res.status(200).json({ message, student })
                 })
             }) // end .then
-    } // end else
+            .catch(next)
 })//end post
 
 // Update a student
 
-router.put('/:id', function(req,res){
-    if (false){
-    res.status(500);
-    res.json ('error updating student')
-    }// end validation block
-    else {
+router.put('/:id', function(req,res, next){
         let id = req.params.id;
         Student.findOne({where: {id: id} }).then(data =>{
             data.datavalues.name = req.body.name
@@ -79,12 +67,11 @@ router.put('/:id', function(req,res){
                 Student.findOne({where:{id:id}}).then(data3 =>{
                     let student = new Student
                     let message = "updated!"
-                    res.status(200);
-                    res.json({message, student})
+                    res.status(200).json({message, student})
                 })
             })
+            .catch(next)
         }) //end find one
-    } // end update else
     }) //end update student
 
 //delete a student

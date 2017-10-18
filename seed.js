@@ -3,10 +3,10 @@ const Student = require('./db/models/student');
 const Campus = require('./db/models/campus');
 
 const campus = [
-    { name: 'Vulcan' },
-    { name: 'Earth' },
-    { name: 'Telaxia' },
-    { name: 'Bajor' },
+    { name: 'Vulcan', imageurl: 'pix/6833.jpg' },
+    { name: 'Earth', imageurl: 'pix/7373.jpg' },
+    { name: 'Telaxia', imageurl: 'pix/8085.jpg' },
+    { name: 'Bajor', imageurl: 'pix/8304.jpg' },
 ];
 
 const student = [
