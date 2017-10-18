@@ -1,6 +1,7 @@
 import React, { Redirect, Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import StudentForm from './StudentForm'
 
 export default class SingleStudent extends Component {
 
@@ -60,6 +61,7 @@ export default class SingleStudent extends Component {
                         <button type="button" className="btn btn-default btn-group-sm">Update Student</button>    
                         <button onClick={this.confirmDelete} type="button" className="btn btn-danger btn-group-sm">Delete Student</button>
                     </div>
+                    <StudentForm/>
                 </div >
             </div >
         );

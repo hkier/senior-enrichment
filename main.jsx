@@ -7,8 +7,10 @@ import store from './store'
 import Main from './components/Main'
 
 render (
+  <Provider store={store}>
   <Router>
-    <Main/>
-  </Router>,
+    <Main />
+  </Router>
+</Provider>,
   document.getElementById('sky')
 )
