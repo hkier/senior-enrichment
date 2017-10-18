@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Student from './Student'
 
 export default class AllStudents extends Component {
 
@@ -30,17 +31,7 @@ export default class AllStudents extends Component {
                 <div className="row">
                     {
                         students.map(student => (
-                            <div className="col-xs-3 tile" key={student.id}>
-                                <Link className="thumbnail" to={`/students/${student.id}`}>
-                                    <div className="caption">
-                                        <h5>
-                                            <span>{student.name}</span>
-                                        </h5>
-                                        Student Information
-      <button type="button" className="btn btn-default btn-group-sm">Delete Student</button>
-                                    </div>
-                                </Link>
-                            </div>
+                            <Student student={student} />
                         ))
                     }
                 </div>

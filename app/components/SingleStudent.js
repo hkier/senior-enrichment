@@ -57,7 +57,7 @@ export default class SingleStudent extends Component {
                             <li> campus: {campus.name}</li>
                             <li> student id: {student.id}</li>
                         </ul>
-                        <button type="button" className="btn btn-default btn-group-sm">Update Student</button>
+                        <button type="button" className="btn btn-default btn-group-sm">Update Student</button>    
                         <button onClick={this.confirmDelete} type="button" className="btn btn-danger btn-group-sm">Delete Student</button>
                     </div>
                 </div >
