@@ -1,33 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, withRouter, NavLink  } from 'react-router-dom';
 import ShowPix from './ShowPix'
+import { connect } from 'react-redux';
 
-export default class AllCampuses extends Component {
+// export default class AllCampuses extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            campuses: [],
-            students: []
-        };
-    }
 
-    componentDidMount() {
-        axios.get('/api/campus')
-            .then(res => res.data)
-            .then(campuses => this.setState({ campuses }));
+function AllCampuses (props) {
 
-        axios.get('/api/students')
-            .then(res => res.data)
-            .then(students => this.setState({ students }))
-
-    }
-
-    render() {
-
-        const campuses = this.state.campuses
-        const students = this.state.students
+let {campuses} = props
+console.log ('the props are:',props)
+  campuses = campuses ? campuses : []
+         
         return (
             <div>
                 <h3>Campuses
@@ -55,4 +39,7 @@ export default class AllCampuses extends Component {
         );
     };
 
+const mapStateToProps = function (state ){
+return {campuses: state.campus}
 }
+export default withRouter(connect(mapStateToProps)(AllCampuses));

@@ -5,9 +5,16 @@ import AllStudents from './AllStudents';
 import Navbar from './Navbar';
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
+import store, { fetchCampuses } from '../store/store';
 
 
 export default class Main extends Component {
+
+  componentDidMount () {
+    const campusesThunk = fetchCampuses();
+    console.log('did we mount?')
+    store.dispatch(campusesThunk);
+  }
 
   render() {
     return (

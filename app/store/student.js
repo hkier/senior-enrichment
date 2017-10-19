@@ -1,8 +1,4 @@
-import { createStore, applyMiddleware } from 'redux'
-import loggerMiddleware from 'redux-logger'
 import axios from 'axios';
-
-const midware = applyMiddleware(loggerMiddleware);
 
 const initialState = {
     students: [],
@@ -52,7 +48,7 @@ export function postStudent(student) {
     };
 }
 
-export function deleteStudent(students) {
+export function deletetheStudent(students) {
 
     return function thunk(dispatch) {
         return axios.delete('/api/student', student)
