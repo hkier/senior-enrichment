@@ -2,8 +2,7 @@ import axios from 'axios';
 
 
 const initialState = {
-    campuses: [],
-    selectedCampus: ""
+    campuses: []
 }
 
 
@@ -17,7 +16,7 @@ const DELETE_CAMPUS = 'DELETE_CAMPUS';
 // ACTION CREATORS
 
 
-export function getCampuses(campuses) { return { type: GET_CAMPUSES, campuses} };
+export function getCampuses(campuses) { return { type: GET_CAMPUSES, campuses } };
 
 export function pickCampus(campus) { return { type: PICK_CAMPUS, selectedCampus: campus } }
 
@@ -66,16 +65,19 @@ export function deletetheCampus(campus) {
 // REDUCER
 
 export default (state = initialState, action) => {
+    // console.log('state in campus reducer is', state, action)
     switch (action.type) {
         case GET_CAMPUSES:
+            // console.log('changed to', Object.assign({}, state, { campuses: action.campuses }))
             return Object.assign({}, state, { campuses: action.campuses });
         case PICK_CAMPUS:
+            // console.log('changed to', Object.assign({}, state, { selectedCampus: action.campus }))
             return Object.assign({}, state, { selectedCampus: action.campus });
         case UPDATE_CAMPUS:
             return Object.assign({}, state, { selectedCampus: action.campus });
         case DELETE_CAMPUS:
             return Object.assign({}, state, { selectedCampus: action.campus });
         default:
-            return initialState;
+            return state;
     }
 };

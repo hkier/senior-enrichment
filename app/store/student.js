@@ -15,7 +15,7 @@ const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // ACTION CREATORS
 
-export function getStudents() { return { type: GET_STUDENTS, } };
+export function getStudents(students) { return { type: GET_STUDENTS, students } };
 
 export function pickStudent(student) { return { type: PICK_STUDENT, selectedStudent: student } }
 
@@ -27,19 +27,30 @@ export function deleteStudent(student) { return { type: DELETE_STUDENT, selected
 
 export function fetchStudents() {
     return function thunk(dispatch) {
-        axios.get('/api/student')
-            .then(res => res.data)
-            .then(students => {
-                const action = getStudents(students);
+        axios.get('/api/students')
+        .then(res => res.data)
+        .then(students => {
+            const action = getStudents(students);
+            console.log('inside fetchStudents Thunk', action)
                 dispatch(action);
             });
     };
 }
+export function fetchStudentsForCampus(campusID) {
+
+    axios.get(`/api/students/campus/${campusId}`)
+        .then(res => res.data)
+        .then(students => {
+            const action = getStudents(students);
+            dispatch(action);
+        });
+}
+
 
 export function postStudent(student) {
 
     return function thunk(dispatch) {
-        return axios.post('/api/student', student)
+        return axios.post('/api/students', student)
             .then(res => res.data)
             .then(newStudent => {
                 const action = getStudents(students);
@@ -51,7 +62,7 @@ export function postStudent(student) {
 export function deletetheStudent(students) {
 
     return function thunk(dispatch) {
-        return axios.delete('/api/student', student)
+        return axios.delete('/api/students', student)
             .then(res => res.data)
             .then(newStudent => {
                 const action = getStudents(students);
@@ -64,9 +75,11 @@ export function deletetheStudent(students) {
 // REDUCER
 
 export default (state = initialState, action) => {
+    console.log('state in student reducer is', state, action)
     switch (action.type) {
         case GET_STUDENTS:
-            return Object.assign({}, state, [students]);
+        console.log('changed to', Object.assign({}, state, { students: action.students }))
+            return Object.assign({}, state, { students: action.students });
         case PICK_STUDENT:
             return Object.assign({}, state, { selectedStudent: action.student });
         case UPDATE_STUDENT:
@@ -74,6 +87,6 @@ export default (state = initialState, action) => {
         case DELETE_STUDENT:
             return Object.assign({}, state, { selectedStudent: action.student });
         default:
-            return initialState;
+            return state;
     }
 };

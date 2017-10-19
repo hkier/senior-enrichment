@@ -1,41 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Student from './Student'
-
-export default class AllStudents extends Component {
-
-    constructor() {
-        super();
-        this.state = {
-            students: []
-        };
-    }
+import { Link, withRouter, NavLink  } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 
 
-    componentDidMount() {
-        axios.get('/api/students')
-            .then(res => res.data)
-            .then(students => this.setState({ students }));
-    }
 
-    render() {
+    // componentDidMount() {
+    //     axios.get('/api/students')
+    //         .then(res => res.data)
+    //         .then(students => this.setState({ students }));
+    // }
 
-        const students = this.state.students;
-        return (
+    function AllStudents(props){
+  let {student} = props
+    
+    return (
             <div>
                 <h3>Students
     <button type="button" className="btn btn-default btn-group-sm">New Student</button>
                 </h3>
                 <div className="row">
                     {
-                        students.map(student => (
-                            <Student student={student} />
+                        student.students.map(student1 => (
+                            <Student student={student1} />
                         ))
                     }
                 </div>
             </div >
         );
     };
-}
+
+    const mapStateToProps = function (state ){return {student: state.student}}
+    export default withRouter(connect(mapStateToProps)(AllStudents));
