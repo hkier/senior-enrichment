@@ -10,12 +10,10 @@ import store, { fetchCampuses } from '../store/store';
 
 export default class Main extends Component {
 
-  componentDidMount () {
-    const campusesThunk = fetchCampuses();
-    console.log('did we mount?')
-    store.dispatch(campusesThunk);
-  }
-
+componentDidMount () {
+  const campusesThunk = fetchCampuses();
+  store.dispatch(campusesThunk);
+}
   render() {
     return (
       <div>
