@@ -10,7 +10,9 @@ const initialState = {
 
 const GET_STUDENTS = 'GET_STUDENTS';
 const PICK_STUDENT = 'PICK_STUDENT';
-const UPDATE_STUDENT = 'UPDATE_STUDENT';
+const UPDATE_STUDENT_NAME = 'UPDATE_STUDENT_NAME';
+const UPDATE_STUDENT_EMAIL = 'UPDATE_STUDENT_EMAIL';
+const UPDATE_STUDENT_CAMPUS = 'UPDATE_STUDENT_CAMPUS';
 const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // ACTION CREATORS
@@ -19,7 +21,9 @@ export function getStudents(students) { return { type: GET_STUDENTS, students } 
 
 export function pickStudent(student) { return { type: PICK_STUDENT, selectedStudent: student } }
 
-export function updateStudent(student) { return { type: UPDATE_STUDENT, selectedStudent: student } };
+export function updateStudentName(student) { return { type: UPDATE_STUDENT_NAME, selectedStudent: student } };
+export function updateStudentEmail(student) { return { type: UPDATE_STUDENT_EMAIL, selectedStudent: student } };
+export function updateStudentCampus(student) { return { type: UPDATE_STUDENT_CAMPUS, selectedStudent: student } };
 
 export function deleteStudent(student) { return { type: DELETE_STUDENT, selectedStudent: student } }
 
@@ -28,10 +32,10 @@ export function deleteStudent(student) { return { type: DELETE_STUDENT, selected
 export function fetchStudents() {
     return function thunk(dispatch) {
         axios.get('/api/students')
-        .then(res => res.data)
-        .then(students => {
-            const action = getStudents(students);
-            // console.log('inside fetchStudents Thunk', action)
+            .then(res => res.data)
+            .then(students => {
+                const action = getStudents(students);
+                // console.log('inside fetchStudents Thunk', action)
                 dispatch(action);
             });
     };
@@ -78,11 +82,18 @@ export default (state = initialState, action) => {
     // console.log('state in student reducer is', state, action)
     switch (action.type) {
         case GET_STUDENTS:
-        // console.log('changed to', Object.assign({}, state, { students: action.students }))
+            // console.log('changed to', Object.assign({}, state, { students: action.students }))
             return Object.assign({}, state, { students: action.students });
         case PICK_STUDENT:
             return Object.assign({}, state, { selectedStudent: action.student });
-        case UPDATE_STUDENT:
+        case UPDATE_STUDENT_NAME:
+            console.log("name", state, action)
+            return Object.assign({}, state, { selectedStudent: action.student });
+        case UPDATE_STUDENT_EMAIL:
+            console.log("email", state, action)
+            return Object.assign({}, state, { selectedStudent: action.student });
+        case UPDATE_STUDENT_CAMPUS:
+            console.log("campus", state, action)
             return Object.assign({}, state, { selectedStudent: action.student });
         case DELETE_STUDENT:
             return Object.assign({}, state, { selectedStudent: action.student });

@@ -23,12 +23,11 @@ function SingleStudent(props) {
     //             .catch(err => console.error(err));
     //     };;
     // }
-    console.log ('props are',props)
     return (
 
         <div className="col-xs-3 tile" key={selectedStudent.id}>
             <div className="caption">
-                <form onSubmit={props.updateStudentRecord}>
+                <form onSubmit={updateStudentRecord}>
                     <table>
                         <tr>
                             <th></th>
@@ -66,7 +65,10 @@ const mapDispatchToProps = function (dispatch) {
            console.log('here I am')
         },
         updateStudentRecord(evt) {
-            console.log('what is the event?', evt.target.newCampus.value, evt.target.newName.value,evt.target.newEmail.value)
+            const newCampus =evt.target.newCampus.value 
+            const newName = evt.target.newName.value
+            const newEmail = evt.target.newEmail.value
+
        }
     };
 };
