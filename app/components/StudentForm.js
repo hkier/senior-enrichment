@@ -1,8 +1,9 @@
-import React, { Redirect, Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { Link, withRouter, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import axios from 'axios';
 
-export default class StudentForm extends Component {
+class StudentForm extends Component {
 
 
 
@@ -41,3 +42,13 @@ export default class StudentForm extends Component {
         )
     };
 }
+
+const mapDispatchToProps = function (dispatch) {
+    return {
+      handleChange (evt) {
+        dispatch(updateName(evt.target.value));
+      }
+    };
+  };
+const mapStateToProps = function (state) { return { student: state.student, campus: state.campus } }
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(StudentForm));

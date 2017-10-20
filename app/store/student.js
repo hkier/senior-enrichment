@@ -31,7 +31,7 @@ export function fetchStudents() {
         .then(res => res.data)
         .then(students => {
             const action = getStudents(students);
-            console.log('inside fetchStudents Thunk', action)
+            // console.log('inside fetchStudents Thunk', action)
                 dispatch(action);
             });
     };
@@ -75,10 +75,10 @@ export function deletetheStudent(students) {
 // REDUCER
 
 export default (state = initialState, action) => {
-    console.log('state in student reducer is', state, action)
+    // console.log('state in student reducer is', state, action)
     switch (action.type) {
         case GET_STUDENTS:
-        console.log('changed to', Object.assign({}, state, { students: action.students }))
+        // console.log('changed to', Object.assign({}, state, { students: action.students }))
             return Object.assign({}, state, { students: action.students });
         case PICK_STUDENT:
             return Object.assign({}, state, { selectedStudent: action.student });
