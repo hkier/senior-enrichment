@@ -68,14 +68,16 @@ export default (state = initialState, action) => {
     console.log('state in campus reducer is', state, action)
     switch (action.type) {
         case GET_CAMPUSES:
-            // console.log('changed to', Object.assign({}, state, { campuses: action.campuses }))
+            console.log('changed to', Object.assign({}, state, { campuses: action.campuses }))
             return Object.assign({}, state, { campuses: action.campuses });
         case PICK_CAMPUS:
-            // console.log('changed to', Object.assign({}, state, { selectedCampus: action.campus }))
+            console.log('changed to', Object.assign({}, state, { selectedCampus: action.campus }))
             return Object.assign({}, state, { selectedCampus: action.campus });
         case UPDATE_CAMPUS:
+        console.log('changed to', Object.assign({}, state, { selectedCampus: action.campus }))
             return Object.assign({}, state, { selectedCampus: action.campus });
         case DELETE_CAMPUS:
+        console.log('changed to', Object.assign({}, state, { selectedCampus: action.campus }))
             return Object.assign({}, state, { selectedCampus: action.campus });
         default:
             return state;

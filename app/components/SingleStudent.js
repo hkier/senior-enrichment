@@ -1,17 +1,34 @@
 import React, { Redirect, Component } from 'react';
 import { Link, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import StudentForm from './StudentForm'
+import store, {
+    dispatch,
+    putStudent,
+    pickStudent,
+    // updateStudentCampus,
+    // updateStudentEmail,
+    // updateStudentName
+    updateStudentRecord
+} from '../store/store'
+
 
 function SingleStudent(props) {
-    const { student, handleCampusChange, updateStudentRecord } = props
-
+    const {
+        // dispatch,
+        student,
+        // putStudent,
+        // pickStudent,
+        handleCampusChange,
+        updateStudentRecord,
+        // updateStudentName,
+        // updateStudentEmail,
+        // updateStudentCampus 
+    } = props
     const studentId = Number(props.match.params.studentid)
     const students = props.student.students
     const campuses = props.campus.campuses
     const selectedStudent = students.filter(student => student.id === studentId)
     const selectedCampus = campuses.filter(campus => student.campusId === campus.Id)
-
     // confirmDelete(evt) {
     //     if (confirm('Delete the item?')) {
     //         console.log('this', this.state.oneStudent.id)
@@ -23,11 +40,14 @@ function SingleStudent(props) {
     //             .catch(err => console.error(err));
     //     };;
     // }
+
+
     return (
 
         <div className="col-xs-3 tile" key={selectedStudent.id}>
             <div className="caption">
-                <form onSubmit={updateStudentRecord}>
+                <form onSubmit={updateStudentRecord} >
+                <input name='idnum' title={studentId} hidden/>
                     <table>
                         <tr>
                             <th></th>
@@ -42,7 +62,7 @@ function SingleStudent(props) {
                         <tr>
                             <td>Email:</td>
                             <td>{selectedStudent[0].email}</td>
-                            <td><span><input name='newEmail'type="text" /></span></td>
+                            <td><span><input name='newEmail' type="text" /></span></td>
                         </tr>
                         <td>Campus:</td>
                         <td>{selectedCampus[0].name}</td>
@@ -51,7 +71,7 @@ function SingleStudent(props) {
                             {campuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
                         </select></td>
                     </table>
-                    <button type="submit"  className="btn btn-default btn-group-sm">Update Student</button>
+                    <button type="submit" className="btn btn-default btn-group-sm">Update Student</button>
                     {false && <button onClick={this.confirmDelete} type="button" className="btn btn-danger btn-group-sm">Delete Student</button>}
                 </form>
             </div>
@@ -60,18 +80,26 @@ function SingleStudent(props) {
 }
 
 const mapDispatchToProps = function (dispatch) {
+
     return {
         handleCampusChange(evt) {
-           console.log('here I am')
+            evt.preventDefault();
+            console.log('here I am')
         },
         updateStudentRecord(evt) {
-            const newCampus =evt.target.newCampus.value 
+            evt.preventDefault();
+            const newCampus = evt.target.newCampus.value
             const newName = evt.target.newName.value
             const newEmail = evt.target.newEmail.value
+            let action = updateStudentRecord({ campusId: newCampus, email: newEmail, name: newName })
+            dispatch(action)
+            putStudent(action.selectedStudent, evt.target.idnum.title)
 
-       }
+
+
+        },
     };
 };
 
-const mapStateToProps = function (state) { return { student: state.student, campus: state.campus } }
+const mapStateToProps = function (state) { return { student: state.student, campus: state.campus, selectedStudent: state.student.selectedStudent } }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SingleStudent));
