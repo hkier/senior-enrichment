@@ -8,6 +8,7 @@ import store, {
     // updateStudentCampus,
     // updateStudentEmail,
     // updateStudentName
+    confirmDelete,
     updateStudentRecord
 } from '../store/store'
 
@@ -47,7 +48,7 @@ function SingleStudent(props) {
         <div className="col-xs-3 tile" key={selectedStudent.id}>
             <div className="caption">
                 <form onSubmit={updateStudentRecord} >
-                <input name='idnum' title={studentId} hidden/>
+                    <input name='idnum' title={studentId} hidden />
                     <table>
                         <tr>
                             <th></th>
@@ -72,7 +73,7 @@ function SingleStudent(props) {
                         </select></td>
                     </table>
                     <button type="submit" className="btn btn-default btn-group-sm">Update Student</button>
-                    {false && <button onClick={this.confirmDelete} type="button" className="btn btn-danger btn-group-sm">Delete Student</button>}
+                    <button onClick={confirmDelete} type="button" className="btn btn-danger btn-group-sm">Delete Student</button>
                 </form>
             </div>
         </div >
@@ -98,6 +99,19 @@ const mapDispatchToProps = function (dispatch) {
 
 
         },
+        confirmDelete(evt) {
+            console.log('did I get here?')
+            if (confirm('Delete the item?')) {
+                console.log('this', this.state.oneStudent.id)
+                axios.delete(`/api/students/${this.state.oneStudent.id}`)
+                    .then(res => {
+                        this.props.history.push('/students') // got to go somewhere after student is deleted.
+                        return res.data
+                    })
+                    .catch(err => console.error(err));
+            };;
+        }
+
     };
 };
 
