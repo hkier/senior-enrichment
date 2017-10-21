@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//displays the navbar on all screens
+
 const Navbar = (props) => {
 
     const navbar = props.navbar

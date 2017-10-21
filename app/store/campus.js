@@ -1,3 +1,8 @@
+//this is the store for the campus information
+//at this time I only need to keep a list of the campuses.
+
+
+
 import axios from 'axios';
 
 

@@ -4,7 +4,8 @@ import ShowPix from './ShowPix'
 import Student from './Student'
 import { connect } from 'react-redux';
 
-
+//this component will display a single campus along with a list of students 
+//assigned to that campus. 
 
 function SingleCampus(props) {
 

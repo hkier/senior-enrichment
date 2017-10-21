@@ -11,6 +11,8 @@ import store, { fetchCampuses, fetchStudents } from '../store/store';
 
 export default class Main extends Component {
 
+//this is the main momdule responsible for setup and routing.
+
 componentDidMount () {
   const campusesThunk = fetchCampuses();
   const studentsThunk = fetchStudents();

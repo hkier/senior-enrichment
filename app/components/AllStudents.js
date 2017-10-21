@@ -3,6 +3,9 @@ import { Link, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Student from './Student'
 
+//this component will display a list of students for the school.
+
+// it calls a component to display a student section.
 
 
 

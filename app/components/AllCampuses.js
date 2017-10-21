@@ -3,7 +3,7 @@ import { Link, withRouter, NavLink  } from 'react-router-dom';
 import ShowPix from './ShowPix'
 import { connect } from 'react-redux';
 
-
+//This component is responsible for displaying all the campuses.  
 
 function AllCampuses (props) {
 

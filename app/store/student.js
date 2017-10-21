@@ -1,3 +1,10 @@
+//this is the student store.  No this is not where students buy books...
+// this is where the information for the students are kept.  I
+//currently use it to store the list of students (in a scaled application this
+//would be updated with the list of "actively used" students.  But for such a 
+//small database, all the students can be placed here upon loading.)  It also
+//has the selectedStudent, 
+
 import axios from 'axios';
 
 const initialState = {

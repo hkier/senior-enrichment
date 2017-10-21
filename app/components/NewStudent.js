@@ -3,6 +3,9 @@ import { Link, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import StudentForm from './StudentForm'
 
+//this component is not fully functional.  It will display the form needed to add
+// a new student.  This is the same form which is being used to update a student.
+
 function NewStudent (props) {
 
 return (

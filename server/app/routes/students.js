@@ -1,3 +1,11 @@
+//these are the routes for the api calls which primarily deal with the student model
+//the console.log statements are placed there to verify routing is done correctly
+//for the front end calls.  The would be removed if I had the time.
+//
+//Also all backend routes were verified to be correct before the front end was started.
+
+
+
 'use strict';
 
 const express = require('express');

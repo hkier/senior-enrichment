@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+//this component will display the student info/nav tile.  It is called in two places
+//the first is for AllStudents.  The other is from a SingleCampus.  
+
 export default (props) => {
 let student = props.student;
 return (

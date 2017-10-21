@@ -5,31 +5,30 @@ import store, {
     dispatch,
     putStudent,
     pickStudent,
-    // updateStudentCampus,
-    // updateStudentEmail,
-    // updateStudentName
     confirmDelete,
     updateStudentRecord
 } from '../store/store'
 
+ //this will display a single student and then dispatch the appropriate actions
+ //based on the user's input
+
 
 function SingleStudent(props) {
     const {
-        // dispatch,
         student,
-        // putStudent,
-        // pickStudent,
         handleCampusChange,
         updateStudentRecord,
-        // updateStudentName,
-        // updateStudentEmail,
-        // updateStudentCampus 
     } = props
     const studentId = Number(props.match.params.studentid)
     const students = props.student.students
     const campuses = props.campus.campuses
     const selectedStudent = students.filter(student => student.id === studentId)
     const selectedCampus = campuses.filter(campus => student.campusId === campus.Id)
+    
+   //this code was working but I had to comment it out to fix another problem.
+   //then I moved it to another section of the code but I am keeping it here to
+   //allow me to look at the code for further debugging/comparision
+    
     // confirmDelete(evt) {
     //     if (confirm('Delete the item?')) {
     //         console.log('this', this.state.oneStudent.id)
