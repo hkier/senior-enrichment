@@ -7,6 +7,7 @@ import NewStudent from './NewStudent';
 import SingleCampus from './SingleCampus';
 import SingleStudent from './SingleStudent';
 import store, { fetchCampuses, fetchStudents } from '../store/store';
+import chalk from 'chalk'
 
 
 export default class Main extends Component {
@@ -21,6 +22,7 @@ componentDidMount () {
   store.dispatch(studentsThunk);
 }
   render() {
+    console.log('component rendered')
     return (
       <div>
         <Navbar />
